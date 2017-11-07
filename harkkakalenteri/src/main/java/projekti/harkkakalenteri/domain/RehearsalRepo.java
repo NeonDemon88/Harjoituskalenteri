@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface HarkkaRepo extends CrudRepository<Harkka, Long> {
+public interface RehearsalRepo extends CrudRepository<Rehearsal, Long> {
 	
-	    List<Harkka> findById(Long id);
+	    List<Rehearsal> findById(Long id);
 
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Sisäänkirjautuminen</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  	<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row" style="margin-top:20px">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form th:action="@{/login}" method="post">
+                <fieldset>
+                    <h1>Kirjaudu tunnuksilla</h1>
+
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">
+                            Väärä käyttäjänimi tai salasana.
+                        </div>
+                    </div>
+                    <div th:if="${param.logout}">
+                        <div class="alert alert-info">
+                            Olet kirjautunut ulos.
+                        </div>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 10px">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" name="username" id="username" class="form-control input-lg"
+                               placeholder="Käyttäjätunnus" required="true" autofocus="true"/>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 10px">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" name="password" id="password" class="form-control input-lg"
+                               placeholder="Salasana" required="true"/>
+                    </div>
+
+                    <div class="row">
+                        <div class="text-center" style="margin-right: 30%; margin-left: 30%">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Kirjaudu sisään"/>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center" style="padding: 10px">
+                        <a th:href="@{/signup}">Luo käyttäjätunnus</a>
+                        </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+	<!-- <div th:if="${param.error}">Väärä käyttäjätunnus tai salasana.</div>
+	<div th:if="${param.logout}">Olet kirjautunut ulos.</div>
+	<form th:action="@{/login}" method="post">
+		<div>
+			<label> Käyttäjätunnus : <input type="text" name="username" />
+			</label>
+		</div>
+		<div>
+			<label> Salasana: <input type="password" name="password" />
+			</label>
+		</div>
+		<div>
+			<input type="submit" value="Kirjaudu" />
+		</div>
+	</form> -->
+</body>
+</html>
