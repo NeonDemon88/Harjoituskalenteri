@@ -73,6 +73,12 @@ public class RehearsalController {
 	public String login() {
 		return "login";
 	} 
+//	
+//	@RequestMapping(value="forgot")
+//	public String forgotPassword() {
+//		return "forgotPassword";
+//	} 
+
 
 
 }

@@ -34,7 +34,7 @@ public class RehearsalCalApplication {
 				log.info(rehearsalList.toString());
 			}
 			
-			User user = new User("user", "$2a$08$wQLf2jfDNAHw.LKNsXTJHOPla2Q1SawYVpG0MjK2EMGXDj9bBxka2", "user@gmail.com", "USER"); //kayttaja
+			User user = new User("user", "$2a$08$wQLf2jfDNAHw.LKNsXTJHOPla2Q1SawYVpG0MjK2EMGXDj9bBxka2", "user@gmail.com", "USER", "NULL"); //kayttaja
 //			User user2 = new User("admin", "$2a$10$3mQSL/XJIzmc0P24/gatcODqMD9fgQ5m2h/CRTvu9OSYkm24kKxZK", "admin@gmail.com", "ADMIN"); // yllapitaja
 			urep.save(user);
 //			urep.save(user2);

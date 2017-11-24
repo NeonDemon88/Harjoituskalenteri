@@ -1,5 +1,7 @@
 package projekti.harkkakalenteri.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,5 +30,6 @@ public class UserDetailServiceImpl implements UserDetailsService  {
         UserDetails user = new org.springframework.security.core.userdetails.User(username, curruser.getPasswordHash(), 
         		AuthorityUtils.createAuthorityList(curruser.getRole()));
         return user;
-    }   
+    }
+  
 } 

@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class User {
     @Id
@@ -20,21 +23,28 @@ public class User {
     @Column(name = "password", nullable = false)
     private String passwordHash;
     
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
+    @Email(message = "Anna sähköpostiosoite oikeassa muodossa.")
+    @NotEmpty(message = "Anna sähköpostiosoite.")
     private String email;
 
     @Column(name = "role", nullable = false)
     private String role;
     
+    @Column(name = "reset_token")
+	private String resetToken;
+
+    
     public User() {
     }
 
-	public User(String username, String passwordHash, String email, String role) {
+	public User(String username, String passwordHash, String email, String role, String resetToken) {
 		super();
 		this.username = username;
 		this.passwordHash = passwordHash;
 		this.email = email;
 		this.role = role;
+		this.resetToken = resetToken;
 	}
 
 	public Long getId() {
@@ -75,6 +85,14 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
 	}
 
 }
