@@ -7,5 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface RehearsalRepo extends CrudRepository<Rehearsal, Long> {
 	
 	    List<Rehearsal> findById(Long id);
+	    
+	    Rehearsal findRehearsalById (Long id);
 
 }

@@ -1,10 +1,14 @@
 package projekti.harkkakalenteri.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +22,7 @@ public class RehearsalController {
 
 	@Autowired
 	private RehearsalRepo rep;
+
 
 	// show all rehearsals
 	@RequestMapping(value = "/rehearsalList", method = RequestMethod.GET)
@@ -56,13 +61,33 @@ public class RehearsalController {
 		return "redirect:rehearsalList";
 	}
 
-
+    //delete rehearsal from repository
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteRehearsal(@PathVariable("id") Long rehearsalId, Model model) {
-
 		rep.delete(rehearsalId);
+		
 		return "redirect:../rehearsalList";
 	}
+	
+	//get rehearsal to be edited
+	@RequestMapping(value = "/rehearsal/edit/{id}", method = RequestMethod.GET)
+	public String edit(@PathVariable("id") Long rehearsalId, ModelMap model) {
+
+		model.put("editRehearsal", rep.findRehearsalById(rehearsalId));
+		
+		return "edit";
+	}
+	
+	//save edited rehearsal to repository
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String saveRehearsal(@ModelAttribute("editRehearsal") Rehearsal editRehearsal, BindingResult result, ModelMap model){
+		if (result.hasErrors()) {
+	    return "edit";
+	 }
+
+	  rep.save(editRehearsal);
+	        return "redirect:rehearsalList";
+	 }
 
 	@RequestMapping(value="/")
 	public String redirect() {
