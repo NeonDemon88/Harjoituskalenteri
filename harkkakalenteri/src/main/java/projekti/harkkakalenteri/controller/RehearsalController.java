@@ -70,7 +70,7 @@ public class RehearsalController {
 	}
 	
 	//get rehearsal to be edited
-	@RequestMapping(value = "/rehearsal/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit-rehearsal-data/{id}", method = RequestMethod.GET)
 	public String edit(@PathVariable("id") Long rehearsalId, ModelMap model) {
 
 		model.put("editRehearsal", rep.findRehearsalById(rehearsalId));

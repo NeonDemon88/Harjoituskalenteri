@@ -32,12 +32,11 @@
 							<a th:href="@{/delete/{id}(id=${rehearsal.id})}" class="btn btn-danger">Poista</a>
 						</td>
 						<td>
-							<a th:href="@{/rehearsal/edit/{id} (id=${rehearsal.id})}" class="btn btn-success">Muokkaa</a>
+							<a th:href="@{/edit-rehearsal-data/{id}(id=${rehearsal.id})}" class="btn btn-success">Muokkaa</a>
 						</td>
 					</tr>
 				</table>
 				<a href="/add" class="btn btn-success" style="margin: 10px">Luo harjoitus</a>
-
 				<form th:action="@{/logout}" method="post">
 					<input type="submit" style="margin: 10px" class="btn btn-primary" value="Kirjaudu ulos"/>
 				</form>

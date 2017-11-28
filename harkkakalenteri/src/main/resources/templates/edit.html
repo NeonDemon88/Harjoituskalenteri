@@ -1,11 +1,9 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Muokkaa harjoituksen tietoja</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
-	th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
 	<div class="container">
@@ -49,7 +47,7 @@
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<input type="reset" class="btn btn-lg btn-success" style="" value="Tyhjennä kentät"></input>
 								<input type="submit" class="btn btn-lg btn-success" style="" value="Tallenna"></input>
-								<a href="/rehearsalList" class="btn btn-success" >Takaisin listaukseen</a>
+								<button class="btn btn-success" href="/rehearsalList">Takaisin listaukseen</button>
 							</div>
 						</div>
 					</fieldset>
